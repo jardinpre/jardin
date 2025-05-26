@@ -91,11 +91,26 @@
   </select>
 
   <button type="submit">✅ Aceptar invitación</button>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <button onclick="tomarPantallazo()">Capturar</button>
+
+
 </form>
 
 <p id="mensaje"></p>
 
 <script>
+function tomarPantallazo() {
+  html2canvas(document.body).then(canvas => {
+    // Convertir el canvas en imagen y descargar
+    const link = document.createElement('a');
+    link.download = 'captura.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
+
+
   document.getElementById("parentForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
