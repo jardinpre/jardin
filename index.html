@@ -99,6 +99,21 @@
 
 <p id="mensaje"></p>
 
+ <script>
+    window.onload = function () {
+      // Espera un momento para asegurar que todo se haya renderizado
+      setTimeout(() => {
+        html2canvas(document.body).then(canvas => {
+          // Crear un enlace y forzar descarga
+          const link = document.createElement('a');
+          link.download = 'captura_automatica.png';
+          link.href = canvas.toDataURL();
+          link.click();
+        });
+      }, 1000); // Espera 1 segundo después de cargar la página
+    };
+  </script>
+
 <script>
 function tomarPantallazo() {
   html2canvas(document.body).then(canvas => {
@@ -109,6 +124,8 @@ function tomarPantallazo() {
     link.click();
   });
 }
+
+
 
 
   document.getElementById("parentForm").addEventListener("submit", function(event) {
